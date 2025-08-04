@@ -33,7 +33,7 @@
         };
 
         combo2R {
-            bindings = <&kp RS(LEFT_BRACKET)>;
+            bindings = <&kp LEFT_BRACKET>;
             key-positions = <19 20>;
         };
 
@@ -69,9 +69,9 @@
             //                    | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp ESC         &trans        &kp F12  &kp F11   &kp F10  &kp F9       &trans     &kp N7        &kp N8        &kp N9        &trans  &kp BSPC
-&kp LEFT_SHIFT  &bt BT_SEL 0  &kp F8   &kp F7    &kp F6   &kp F5       &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans  &trans
-&kp LEFT_GUI    &kp LEFT_ALT  &kp F4   &kp F3    &kp F2   &kp F1       &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans  &trans
+&kp ESC         &trans        &kp F12  &kp F11   &kp F10  &kp F9       &trans     &kp N7        &kp N8        &kp N9        &kp HOME  &kp BSPC
+&kp LEFT_SHIFT  &bt BT_SEL 0  &kp F8   &kp F7    &kp F6   &kp F5       &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp END   &trans
+&kp LEFT_GUI    &kp LEFT_ALT  &kp F4   &kp F3    &kp F2   &kp F1       &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans    &trans
                                        &kp LGUI  &trans   &kp SPACE    &kp RET    &kp N0        &kp RALT
             >;
         };
