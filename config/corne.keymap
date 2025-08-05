@@ -43,6 +43,15 @@
         };
     };
 
+    macros {
+        cedilha: cedilha {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT_ALT &kp COMMA>;
+            label = "CEDILHA";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -86,7 +95,7 @@
             bindings = <
 &kp TAB           &trans  &trans  &trans    &trans  &trans       &trans    &trans    &kp CARET  &kp GRAVE  &trans  &kp BSPC
 &kp LEFT_SHIFT    &trans  &trans  &trans    &trans  &trans       &kp LEFT  &kp DOWN  &kp UP     &kp RIGHT  &trans  &trans
-&kp LEFT_CONTROL  &trans  &trans  &trans    &trans  &trans       &trans    &trans    &trans     &trans     &trans  &trans
+&kp LEFT_CONTROL  &trans  &trans  &trans    &trans  &trans       &trans    &trans    &trans     &cedilha   &trans  &trans
                                   &kp LGUI  &trans  &kp SPACE    &kp RET   &trans    &kp RALT
             >;
         };
