@@ -10,6 +10,28 @@
 #include <dt-bindings/zmk/pointing.h>
 
 / {
+    behaviors {
+        // Ajusta o tempo de todos os Mod-Tap (&mt) do arquivo para 300ms
+        mt: custom_mt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <300>;
+            quick-tap-ms = <200>;
+            bindings = <&kp>, <&kp>;
+        };
+
+        // Ajusta o tempo de todos os Layer-Tap (&lt) do arquivo para 300ms
+        lt: custom_lt {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            flavor = "tap-preferred";
+            tapping-term-ms = <300>;
+            quick-tap-ms = <200>;
+            bindings = <&mo>, <&kp>;
+        };
+    };
+
     combos {
         compatible = "zmk,combos";
 
@@ -52,7 +74,7 @@
             // |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
             // | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
             // | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-            //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+            //                     | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
 &kp ESC                            &kp Q           &kp W  &kp E         &kp R      &kp T            &kp Y    &kp U        &kp I            &kp O       &kp P                   &kp DELETE
@@ -67,28 +89,28 @@
             // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
             // | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
             // | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            //                     | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp ESC         &trans            &kp F12  &kp F11       &kp F10  &kp F9       &trans     &kp N7        &kp N8         &kp N9        &kp HOME           &kp BSPC
-&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp F8   &kp F7        &kp F6   &kp F5       &kp MINUS  &kp NUMBER_4  &kp NUMBER_5   &kp NUMBER_6  &kp END            &trans
-&kp LEFT_GUI    &kp LEFT_ALT      &kp F4   &kp F3        &kp F2   &kp F1       &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2   &kp NUMBER_3  &kp RIGHT_CONTROL  &trans
+&kp ESC         &trans            &kp F12  &kp F11       &kp F10  &kp F9       &trans     &kp N7        &kp N8        &kp N9        &kp HOME           &kp BSPC
+&kp LEFT_SHIFT  &kp LEFT_CONTROL  &kp F8   &kp F7        &kp F6   &kp F5       &kp MINUS  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp END            &trans
+&kp LEFT_GUI    &kp LEFT_ALT      &kp F4   &kp F3        &kp F2   &kp F1       &kp EQUAL  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp RIGHT_CONTROL  &trans
                                            &kp LEFT_GUI  &trans   &kp SPACE    &kp RET    &kp N0        &kp RIGHT_ALT
             >;
         };
 
         raise_layer {
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
+            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  * |  (  |  )  | BSPC |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-            //                    | GUI |     | SPC |   | ENT |     | ALT |
+            //                     | GUI |     | SPC |   | ENT |     | ALT |
 
             bindings = <
-&kp TAB           &bt BT_CLR_ALL  &trans      &kp C_BRI_DEC      &kp C_BRI_UP     &trans       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp CARET  &kp BSPC
-&kp LEFT_SHIFT    &trans          &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans       &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &kp GRAVE  &trans
-&kp LEFT_CONTROL  &trans          &trans      &trans             &trans           &trans       &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans     &kp COMMA
-                                              &kp RALT           &mkp LCLK        &mkp RCLK    &kp RET         &trans          &kp LGUI
+&kp TAB           &bt BT_CLR_ALL  &trans      &kp C_BRI_DEC      &kp C_BRI_UP       &trans       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP  &mmv MOVE_RIGHT  &kp CARET  &kp BSPC
+&kp LEFT_SHIFT    &trans          &kp C_MUTE  &kp C_VOLUME_DOWN  &kp C_VOLUME_UP    &trans       &kp LEFT        &kp DOWN        &kp UP        &kp RIGHT        &kp GRAVE  &trans
+&kp LEFT_CONTROL  &trans          &trans      &trans             &trans             &trans       &msc SCRL_LEFT  &msc SCRL_DOWN  &msc SCRL_UP  &msc SCRL_RIGHT  &trans     &kp COMMA
+                                              &kp RALT           &mkp LCLK          &mkp RCLK    &kp RET         &trans          &kp LGUI
             >;
         };
     };
