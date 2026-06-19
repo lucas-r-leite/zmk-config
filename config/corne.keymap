@@ -11,24 +11,14 @@
 
 / {
     behaviors {
-        // Ajusta o tempo de todos os Mod-Tap (&mt) do arquivo para 300ms
-        mt: custom_mt {
+        // Ajusta o tempo de todos os Mod-Tap para 300ms (usando a label mt300)
+        mt300: custom_mt {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             flavor = "tap-preferred";
             tapping-term-ms = <300>;
             quick-tap-ms = <200>;
             bindings = <&kp>, <&kp>;
-        };
-
-        // Ajusta o tempo de todos os Layer-Tap (&lt) do arquivo para 300ms
-        lt: custom_lt {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <300>;
-            quick-tap-ms = <200>;
-            bindings = <&mo>, <&kp>;
         };
     };
 
@@ -77,10 +67,10 @@
             //                     | GUI | LWR | SPC |   | ENT | RSE  | ALT |
 
             bindings = <
-&kp ESC                            &kp Q           &kp W  &kp E         &kp R      &kp T            &kp Y    &kp U        &kp I            &kp O       &kp P                   &kp DELETE
-&mt LEFT_SHIFT CAPSLOCK            &mt LEFT_GUI A  &kp S  &kp D         &kp F      &kp G            &kp H    &kp J        &kp K            &mt LGUI L  &kp SEMI                &kp SINGLE_QUOTE
-&mt LEFT_CONTROL NON_US_BACKSLASH  &kp Z           &kp X  &kp C         &kp V      &kp B            &kp N    &kp M        &kp COMMA        &kp DOT     &mt RIGHT_CONTROL FSLH  &mt RIGHT_SHIFT INS
-                                                          &kp LEFT_ALT  &lt 1 TAB  &kp BACKSPACE    &kp RET  &lt 2 SPACE  &kp PRINTSCREEN
+&kp ESC                              &kp Q             &kp W  &kp E         &kp R        &kp T              &kp Y    &kp U          &kp I            &kp O         &kp P                     &kp DELETE
+&mt300 LEFT_SHIFT CAPSLOCK            &mt300 LEFT_GUI A  &kp S  &kp D         &kp F        &kp G              &kp H    &kp J          &kp K            &mt300 LGUI L  &kp SEMI                  &kp SINGLE_QUOTE
+&mt300 LEFT_CONTROL NON_US_BACKSLASH  &kp Z             &kp X  &kp C         &kp V        &kp B              &kp N    &kp M          &kp COMMA        &kp DOT       &mt300 RIGHT_CONTROL FSLH  &mt300 RIGHT_SHIFT INS
+                                                            &kp LEFT_ALT  &lt 1 TAB  &kp BACKSPACE      &kp RET  &lt 2 SPACE  &kp PRINTSCREEN
             >;
         };
 
@@ -101,7 +91,7 @@
 
         raise_layer {
             // -----------------------------------------------------------------------------------------
-            // |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  * |  (  |  )  | BSPC |
+            // |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
             // | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
             // | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
             //                     | GUI |     | SPC |   | ENT |     | ALT |
